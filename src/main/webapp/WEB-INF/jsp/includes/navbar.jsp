@@ -2,9 +2,15 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <%--HOME--%>
-                <a href="/" class="navbar-brand">Home</a>
+            <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">Home</a>
         </div>
-        <div>
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <%--PAGE LINKS--%>
                 <li><a href="/employee">Employee</a></li>

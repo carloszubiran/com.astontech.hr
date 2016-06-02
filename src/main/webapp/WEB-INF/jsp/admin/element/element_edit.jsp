@@ -24,8 +24,8 @@
     <%--SIDEBAR HERE--%>
     <%@ include file="element_sidebar.jsp" %>
 
-    <div id="main-wrapper" class="col-md-11 pull-right">
-        <div class="col-lg-8 col-md-7 col-sm-6">
+    <div id="main-wrapper" class="col-sm-10">
+        <div class="col-sm-8">
 
             <c:set var="idx" value="0" scope="page"></c:set>
             <form:form class="form-horizontal" modelAttribute="elementType" action="/admin/element/update" method="post">
@@ -34,8 +34,8 @@
                 
                 <div class="row">
                     <div class="form-group">
-                        <label for="inputElementTypeName" class="col-sm-2 control-label"></label>
-                        <div class="col-sm-10">
+                        <label for="inputElementTypeName" class="col-sm-2 control-label">Element Type</label>
+                        <div class="col-sm-8">
                             <form:input path="elementTypeName" type="text" id="inputElementTypeName" class="form-control"/>
                         </div>
                     </div>
@@ -48,21 +48,21 @@
                 </div>
 
                 <c:forEach items="${elementType.elementList}" var="element">
-                <form:hidden path="elementList[${idx}].id"/>
-                <form:hidden path="elementList[${idx}].version"/>
-                <div class="row">
-                    <div class="form-group">
-                        <label for="${idx}" class="col-sm-3 control-label">Element</label>
-                        <div class="col-sm-7">
-                            <div class="input-group">
-                                <form:input path="elementList[${idx}].elementName" id="${idx}" cssclass="form-control"/>
-                                <span class="input-group-btn">
-                                    <button name="${idx}" class="btn btn-default remove_button" type="button">Remove</button>
-                                </span>
+                    <form:hidden path="elementList[${idx}].id"/>
+                    <form:hidden path="elementList[${idx}].version"/>
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="${idx}" class="col-sm-3 control-label">Element</label>
+                            <div class="col-sm-7">
+                                <div class="input-group">
+                                    <form:input path="elementList[${idx}].elementName" id="${idx}" cssclass="form-control"/>
+                                    <span class="input-group-btn">
+                                        <button name="${idx}" class="btn btn-default remove_button" type="button">Remove</button>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                     <c:set var="idx" value="${idx + 1}" scope="page" />
                 </c:forEach>
 
@@ -82,8 +82,12 @@
             </form:form>
 
         </div>
-    </div>
 
+        <div class="col-sm-4">
+
+
+        </div>
+    </div>
 </div>
 
 <%@ include file="../../includes/footer.jsp"%>

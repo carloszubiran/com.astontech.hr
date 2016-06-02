@@ -36,6 +36,7 @@ public class AdminController {
     @RequestMapping(value = "/admin/element/add", method = RequestMethod.GET)
     public String adminElementGet(Model model) {
         model.addAttribute("elementVO", new ElementVO());
+        model.addAttribute("warningAlert", "visible");
         return "admin/element/element_add";
     }
 
@@ -44,7 +45,18 @@ public class AdminController {
         elementVO.splitNewElementsIntoArray();
         model.addAttribute("elementVO", elementVO);
         logElementVo(elementVO);
+
         saveElementTypeAndElementsFromVO(elementVO);
+
+        boolean success = true;
+        if (success) {
+            model.addAttribute("successAlert", "visible");
+        } else {
+            model.addAttribute("errorAlert", "visible");
+        }
+
+        model.addAttribute("elementVO", new ElementVO());
+
         return "admin/element/element_add";
     }
 
@@ -76,7 +88,14 @@ public class AdminController {
 
         //notes:    if newElement (unbound text box) has a value, add it to the list
         if (!newElement.equals("")) {
-            elementType.getElementList().add(new Element(newElement));
+            if (elementType.getElementList() == null) {
+                List<Element> elementList = new ArrayList<>();
+                elementList.add(new Element(newElement));
+                elementType.setElementList(elementList);
+            } else {
+                elementType.getElementList().add(new Element(newElement));
+
+            }
         }
 
         //notes:    iterate thru the list of elements
@@ -85,15 +104,11 @@ public class AdminController {
             if (elementType.getElementList().get(i).getElementName().equals("")) {
                 //notes:    element name is blank remove it from the list
                 elementType.getElementList().remove(i);
-
             }
-
-
         }
-        
 
-            elementTypeService.saveElementType(elementType);
-            return "redirect:/admin/element/edit/" + elementType.getId();
+        elementTypeService.saveElementType(elementType);
+        return "redirect:/admin/element/edit/" + elementType.getId();
     }
 
     //region HELPER METHODS
