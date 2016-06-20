@@ -64,11 +64,11 @@ public class ElementRepositoryTest {
 
         elementRepository.save(elementList);
 
-        Iterable<Element> fetechedElementList = elementRepository.findAll();
+        Iterable<Element> fetchedElementList = elementRepository.findAll();
 
         int count = 0;
         System.out.println();
-        for (Element element: fetechedElementList) {
+        for (Element element: fetchedElementList) {
 
             count += 1;
             System.out.println("count" + count + " " + element.getElementName());

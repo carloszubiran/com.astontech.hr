@@ -49,26 +49,4 @@ public class ElementServiceTest {
 
     }
 
-
-    //region PROPERTIES
-
-
-    //endregion PROPERTIES
-
-    //region CONSTRUCTORS
-
-
-    //endregion CONSTRUCTORS
-
-    //region GETTERS / SETTERS
-
-
-    //endregion GETTERS / SETTERS
-
-    //region CUSTOM METHODS
-
-
-    //endregion CUSTOM METHODS
-
-
 }

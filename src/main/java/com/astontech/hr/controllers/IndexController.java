@@ -13,25 +13,10 @@ public class IndexController {
         return "index";
     }
 
-    //region PROPERTIES
-
-
-    //endregion PROPERTIES
-
-    //region CONSTRUCTORS
-
-
-    //endregion CONSTRUCTORS
-
-    //region GETTERS / SETTERS
-
-
-    //endregion GETTERS / SETTERS
-
-    //region CUSTOM METHODS
-
-
-    //endregion CUSTOM METHODS
+    @RequestMapping(value = "/login")
+    public String login() {
+        return "login";
+    }
 
 
 }

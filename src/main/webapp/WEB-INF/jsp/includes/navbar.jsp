@@ -20,7 +20,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <%--LOGIN LINK--%>
-                <li><a href="#">Login</a></li>
+                <li><a href="/logout">Logout</a></li>
             </ul>
         </div>
     </div>
