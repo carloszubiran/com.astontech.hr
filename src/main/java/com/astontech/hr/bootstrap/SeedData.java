@@ -28,21 +28,11 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
 
     //endregion PROPERTIES
 
-    //region CONSTRUCTORS
-
-
-    //endregion CONSTRUCTORS
-
-    //region GETTERS / SETTERS
-
-
-    //endregion GETTERS / SETTERS
-
     //region CUSTOM METHODS
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
-        generateElementAndElementTypes();
+//        generateElementAndElementTypes();
     }
 
     private void generateElementAndElementTypes() {
